@@ -1,5 +1,7 @@
 language: minimal
-os: windows
+os:
+  - linux
+  - windows
 
 script:
   - travis_retry source myrc
