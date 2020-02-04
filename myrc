@@ -1,0 +1,5 @@
+#!/bin/echo source me
+set -e
+false
+echo got past this point, unexpected.
+set +e
