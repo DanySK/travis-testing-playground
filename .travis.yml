@@ -29,6 +29,5 @@ script:
   - ls -ahl
   - ls -ahl $HOME
   - if [ -e $HOME/stuff ]; then ls -ahl $HOME/stuff; fi
-  - mkdir $HOME/stuff
   - touch $HOME/stuff/somestuff
 
