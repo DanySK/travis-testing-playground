@@ -35,3 +35,5 @@ script:
   - if [ -e $HOME/stuff ]; then ls -ahl $HOME/stuff; fi
   - touch $HOME/stuff/somestuff
 
+cache:
+  branch: paths-relative
