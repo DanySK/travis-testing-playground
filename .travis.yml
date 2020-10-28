@@ -22,6 +22,9 @@ jobs:
           name: base
           paths: stuff
 
+workspaces:
+  use: base
+
 before_install:
   - if [ -e stuff ]; then mv stuff $HOME/stuff; fi
 
