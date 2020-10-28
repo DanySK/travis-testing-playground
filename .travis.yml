@@ -3,8 +3,32 @@ os:
   - linux
   - windows
   - macos
-python:
-  - "3.7"
-  - "3.8"
+stages:
+  - reference
+  - test
+
+jobs:
+  include:
+    - stage: reference
+      os: linux
+      before_install: true
+      before_script:
+        - mkdir $HOME/stuff
+        - touch $HOME/stuff
+      before_cache:
+        - mv $HOME/stuff stuff
+      workspaces:
+        create:
+          name: base
+          paths: stuff
+
+before_install:
+  - if [ -e stuff ]; then mv stuff $HOME/stuff; fi
+
 script:
-  - travis_retry source myrc
+  - ls -ahl
+  - ls -ahl $HOME
+  - if [ -e $HOME/stuff ]; then ls -ahl $HOME/stuff; fi
+  - mkdir $HOME/stuff
+  - touch $HOME/stuff/somestuff
+
